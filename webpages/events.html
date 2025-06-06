@@ -1,0 +1,173 @@
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../css/index.css" />
+      <title>Events - The Foundation Hotel</title>
+      <style>
+        #container-1 {
+          padding: 20px;
+        }
+
+        .event-row {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          margin-bottom: 30px;
+        }
+
+        .event {
+          flex: 1;
+          max-width: 30%;
+          margin: 10px;
+          text-align: center;
+        }
+
+        .event img {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 16/9;
+          object-fit: cover;
+          border-radius: 10px;
+          display: block; /* Ensure the image is displayed as a block element */
+        }
+
+        .event_details {
+          font-size: 0.8em; /* Smaller text size for event descriptions */
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <a href="../index.html">
+          <img src="../images/logo.png" id="hotel_logo" alt="hotel" />
+        </a>
+        <nav>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="rooms.html">Rooms</a></li>
+            <li><a class="active" href="events.html">Events</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section class="main-img" id="img-events">
+          <div class="intro-content">
+            <h1>Events</h1>
+            <p>Place For Your Life's Special Moments</p>
+          </div>
+        </section>
+
+        <h2 class="heading">OUR EVENTS</h2>
+        <hr class="u-line" />
+
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event Name</th>
+              <th>Price of Booking</th>
+              <th>Options</th>
+              <th>Images</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>JUNE 9-11 2025</td>
+              <td>Mega Sale Event</td>
+              <td>EMPTY</td>
+              <td><a href="#">Book Now</a></td>
+              <td>
+                <img src="../images/rajvila-1.jpg" alt="dinner tables" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="heading">PLACES FOR EVENTS</h2>
+        <hr class="u-line" />
+
+        <div id="container-1">
+          <div class="event-row">
+            <div class="event">
+              <img src="../images/vatika.jpg" alt="ballroom" />
+              <h4>Amarupvan</h4>
+              <p class="event_details">
+            </p>
+            </div>
+            <div class="event">
+              <img src="../images/board_hall.jpg" alt="lounge" />
+              <h4>Board Room</h4>
+              <p class="event_details">
+              </p>
+            </div>
+            <div class="event">
+              <img src="../images/darbar.jpg" alt="dining area" />
+              <h4>Darbar-E-Vilas</h4>
+              <p class="event_details">
+              </p>
+            </div>
+            <div class="event">
+              <img src="../images/rajvila-1.jpg" alt="banquet hall" />
+              <h4>Raj-E-Vilas 1</h4>
+              <p class="event_details">
+              </p>
+            </div>
+            <div class="event">
+              <img src="../images/rajvila-2.jpg" alt="conference room" />
+              <h4>Raj-E-Vilas 2</h4>
+              <p class="event_details">
+              </p>
+            </div>
+            <div class="event">
+              <img src="../images/rani-vilas.jpg" alt="celebration area" />
+              <h4>Rani-E-Vilas</h4>
+              <p class="event_details">
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="f-content">
+          <h3>About</h3>
+          <p>
+            We are a company that prides itself in being the premier place for
+            tourists and citizens.
+          </p>
+        </div>
+        <div class="f-content">
+          <h3>Quick Menu</h3>
+          <nav>
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="rooms.html">Rooms</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="f-content">
+          <h3>Social Media</h3>
+          <ul class="socials">
+            <li>
+              <a href="https://www.instagram.com/amarvillaindore/"
+                ><img src="../images/instagram.png" alt="instagram logo"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="f-content">
+          <img id="footer-img" src="../images/logo-only.png" alt="foundation logo" />
+        </div>
+
+        <p id="copyright">&copy; Hotel Amar Vila. All Rights Reserved.</p>
+      </footer>
+    </body>
+  </html>
