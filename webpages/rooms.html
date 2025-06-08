@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rooms - Hotel Amar</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <style>
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: #fff;
+      color: #6b7280;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+    }
+    header a img {
+      height: 48px;
+      user-select: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.75rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #6b7280;
+      transition: color 0.3s ease;
+      font-size: 1rem;
+    }
+    nav a:hover,
+    nav a:focus,
+    nav a.active {
+      color: #111827;
+      outline: none;
+    }
+    main {
+      max-width: 1200px;
+      margin: 3rem auto 6rem;
+      padding: 0 1rem;
+      flex-grow: 1;
+    }
+    .intro-content h1 {
+      font-weight: 800;
+      font-size: 3.25rem;
+      margin: 0 0 3rem;
+      color: #111827;
+      text-align: center;
+    }
+    h2.section-title {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #111827;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    hr.u-line {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin-bottom: 3rem;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .room-container {
+      background: #f9fafb;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.05);
+      border-radius: 0.75rem;
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      overflow: hidden;
+      user-select: none;
+    }
+    .room-img-container {
+      flex-shrink: 0;
+      width: 320px;
+    }
+    .room-img-container img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 0.75rem 0 0 0.75rem;
+    }
+    .room-desc {
+      padding: 1.75rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+    .room-desc h3 {
+      color: #111827;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0 0 1rem;
+    }
+    .room-info .r-top {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      color: #6b7280;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .info img {
+      width: 18px;
+      height: 18px;
+      filter: grayscale(40%) brightness(50%);
+    }
+    .info-d p {
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .info-btns {
+      margin-top: 1rem;
+    }
+    .btn-book {
+      padding: 0.8rem 2.2rem;
+      background-color: #111827;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgb(0 0 0 / 0.12);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .btn-book:hover,
+    .btn-book:focus-visible {
+      background-color: #2563eb;
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 10px 35px rgb(37 99 235 / 0.45);
+    }
+    footer {
+      background: #f9fafb;
+      padding: 3rem 1rem 2rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #9ca3af;
+      user-select: none;
+    }
+    footer .f-content {
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+    }
+    footer h3 {
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+    footer nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    footer nav a {
+      color: #6b7280;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer nav a:hover,
+    footer nav a:focus {
+      color: #111827;
+      outline: none;
+    }
+    footer .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding-left: 0;
+      list-style: none;
+      margin: 1rem 0 0 0;
+    }
+    footer .socials img {
+      width: 24px;
+      height: 24px;
+      user-select: none;
+    }
+    footer #footer-img {
+      display: block;
+      margin: 1.5rem auto 0;
+      height: 48px;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .room-container {
+        flex-direction: column;
+      }
+      .room-img-container {
+        width: 100% !important;
+      }
+      .room-img-container img {
+        height: 200px;
+        object-fit: cover;
+        border-radius: 0.75rem 0.75rem 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="../index.html" aria-label="Hotel Amar Vila Home">
+      <img src="../images/logo.png" id="hotel_logo" alt="hotel" />
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a class="active" href="rooms.html" aria-current="page">Rooms</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro-content">
+      <h1>OUR ROOMS</h1>
+    </section>
+
+    <section>
+      <h2 class="section-title">PREMIUM &amp; LUXURY</h2>
+      <hr class="u-line" />
+
+      <!-- Deluxe Room -->
+      <div class="room-container">
+        <div class="room-img-container">
+          <img src="../images/deluxe.jpg" alt="hotel deluxe room" draggable="false" />
+        </div>
+        <div class="room-desc">
+          <h3>DELUXE ROOM</h3>
+          <div class="room-info">
+            <div class="r-top">
+              <div class="info"><img id="info-img" src="../images/user.png" alt="person" /> <span>2 person</span></div>
+              <div class="info"><img id="info-img" src="../images/single-bed.png" alt="bed" /> <span>double bed</span></div>
+              <div class="info"><img id="info-img" src="../images/air-conditioner.png" alt="air-conditioner" /> <span>air conditioning</span></div>
+              <div class="info"><img id="info-img" src="../images/wifi.png" alt="wifi" /> <span>wifi</span></div>
+            </div>
+            <div class="info-d"><p>Ideal room for those flying on a duo adventure.</p></div>
+            <div class="info-btns">
+              <button class="btn-book" data-room-type="Deluxe Room">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Executive Room -->
+      <div class="room-container">
+        <div class="room-img-container">
+          <img src="../images/exe.jpg" alt="hotel executive room" draggable="false" />
+        </div>
+        <div class="room-desc">
+          <h3>EXECUTIVE ROOM</h3>
+          <div class="room-info">
+            <div class="r-top">
+              <div class="info"><img id="info-img" src="../images/user.png" alt="person" /> <span>3 people</span></div>
+              <div class="info"><img id="info-img" src="../images/single-bed.png" alt="bed" /> <span>double bed</span></div>
+              <div class="info"><img id="info-img" src="../images/air-conditioner.png" alt="air-conditioner" /> <span>air conditioning</span></div>
+              <div class="info"><img id="info-img" src="../images/wifi.png" alt="wifi" /> <span>wifi</span></div>
+            </div>
+            <div class="info-d"><p>Our standard rooms are of premium quality.</p></div>
+            <div class="info-btns">
+              <button class="btn-book" data-room-type="Executive Room">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suite Room -->
+      <div class="room-container">
+        <div class="room-img-container">
+          <img src="../images/suite.jpg" alt="suite room" draggable="false" />
+        </div>
+        <div class="room-desc">
+          <h3>SUITE ROOM</h3>
+          <div class="room-info">
+            <div class="r-top">
+              <div class="info"><img id="info-img" src="../images/user.png" alt="person" /> <span>4 PEOPLE</span></div>
+              <div class="info"><img id="info-img" src="../images/double-bed.png" alt="bed" /> <span>2 double beds</span></div>
+              <div class="info"><img id="info-img" src="../images/air-conditioner.png" alt="air-conditioner" /> <span>air conditioning</span></div>
+              <div class="info"><img id="info-img" src="../images/wifi.png" alt="wifi" /> <span>wifi</span></div>
+            </div>
+            <div class="info-d"><p>Spacious and comfortable.</p></div>
+            <div class="info-btns">
+              <button class="btn-book" data-room-type="Suite Room">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Royal Suite Room -->
+      <div class="room-container">
+        <div class="room-img-container">
+          <img src="../images/rsuite.jpg" alt="Royal suite room" draggable="false" />
+        </div>
+        <div class="room-desc">
+          <h3>ROYAL SUITE ROOM</h3>
+          <div class="room-info">
+            <div class="r-top">
+              <div class="info"><img id="info-img" src="../images/user.png" alt="person" /> <span>4 PEOPLE</span></div>
+              <div class="info"><img id="info-img" src="../images/double-bed.png" alt="bed" /> <span>2 double beds</span></div>
+              <div class="info"><img id="info-img" src="../images/air-conditioner.png" alt="air-conditioner" /> <span>air conditioning</span></div>
+              <div class="info"><img id="info-img" src="../images/wifi.png" alt="wifi" /> <span>wifi</span></div>
+            </div>
+            <div class="info-d"><p>Pure luxury for an unforgettable stay.</p></div>
+            <div class="info-btns">
+              <button class="btn-book" data-room-type="Royal Suite Room">Book Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="f-content">
+      <h3>About</h3>
+      <p>We are a company that prides itself in being the premier place for tourists and citizens.</p>
+    </div>
+    <div class="f-content">
+      <h3>Quick Menu</h3>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="rooms.html">Rooms</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="f-content">
+      <h3>Social Media</h3>
+      <ul class="socials">
+        <li>
+          <a href="https://www.instagram.com/amarvillaindore/"
+            ><img src="../images/instagram.png" alt="instagram logo" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="f-content">
+      <img id="footer-img" src="../images/logo-only.png" alt="Hotel AmarVila" />
+    </div>
+    <p>&copy; Hotel Amar Vila. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const hotelWhatsAppNumber = "918889500035"; // Your real WhatsApp number without "+" or spaces
+
+    const bookButtons = document.querySelectorAll(".btn-book");
+
+    bookButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const roomType = btn.getAttribute("data-room-type") || "room";
+        const whatsappMessage =
+          `Hello, I am interested in booking the ${roomType} at Amar Vila. ` +
+          "I would be grateful if you could provide me with detailed information regarding availability, pricing, and any special offers. " +
+          "Please assist me with the booking process. Looking forward to your prompt response and a wonderful stay.";
+        const whatsappURL = `https://wa.me/${hotelWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        window.open(whatsappURL, "_blank");
+      });
+    });
+  </script>
+</body>
+</html>
