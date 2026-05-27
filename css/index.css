@@ -1783,3 +1783,123 @@ td:last-child {
     gap: 10px;
   }
 }
+/* ================================================= */
+/* ================= MOBILE NAVBAR ================= */
+/* ================================================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #09529a;
+  transition: 0.3s ease;
+  user-select: none;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ================================================= */
+/* ================= MOBILE DESIGN ================= */
+/* ================================================= */
+
+@media screen and (max-width: 767px) {
+
+  /* HEADER */
+  header {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+  }
+
+  /* LOGO */
+  #hotel_logo {
+    width: 120px;
+  }
+
+  /* SHOW HAMBURGER */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* HIDE NAVBAR BY DEFAULT */
+  #mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-top: 1px solid #eee;
+    z-index: 999;
+  }
+
+  /* SHOW NAVBAR WHEN CLICKED */
+  #mobile-nav.show-nav {
+    display: block;
+    animation: slideDown 0.3s ease;
+  }
+
+  /* NAV UL */
+  #mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+  }
+
+  /* NAV ITEMS */
+  #mobile-nav li {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+  }
+
+  /* NAV LINKS */
+  #mobile-nav a {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 15px;
+    transition: 0.3s ease;
+  }
+
+  /* HOVER */
+  #mobile-nav a:hover {
+    background-color: #09529a;
+    color: white;
+    text-shadow: none;
+  }
+
+  /* ACTIVE PAGE */
+  #mobile-nav .active {
+    color: #09529a;
+    font-weight: bold;
+  }
+}
+
+/* ================================================= */
+/* ================= ANIMATION ===================== */
+/* ================================================= */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
