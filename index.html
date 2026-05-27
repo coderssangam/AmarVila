@@ -9,19 +9,26 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
-        <img src="images/logo.png" id="hotel_logo" alt="hotel" />
-      </a>
-      <nav>
-        <ul>  
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="webpages/rooms.html">Rooms</a></li>
-          <li><a href="webpages/events.html">Events</a></li>
-          <li><a href="webpages/about-us.html">About Us</a></li>
-          <li><a href="webpages/contact.html">Contact Us</a></li>
-        </ul>
-      </nav>
-    </header>
+  <a href="index.html">
+    <img src="images/logo.png" id="hotel_logo" alt="hotel" />
+  </a>
+
+  <!-- HAMBURGER MENU -->
+  <div class="menu-toggle" id="menu-toggle">
+    ☰
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="mobile-nav">
+    <ul>
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="webpages/rooms.html">Rooms</a></li>
+      <li><a href="webpages/events.html">Events</a></li>
+      <li><a href="webpages/about-us.html">About Us</a></li>
+      <li><a href="webpages/contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
     <main>
       <section class="main-img" id="img-index">
         <div class="intro-content">
@@ -225,6 +232,14 @@
 
       <p id="copyright">&copy Hotel Amar vila. All Rights Reserved.</p>
     </footer>
+    <script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  menuToggle.addEventListener("click", () => {
+    mobileNav.classList.toggle("show-nav");
+  });
+</script>
   </body>
     Designed & Developed by Exora Studios
 </html>
