@@ -1,57 +1,71 @@
+/* ==================== GLOBAL STYLES ==================== */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
+/* ==================== HEADER & NAVIGATION ==================== */
 header {
   position: sticky;
   top: 0;
   background-color: #fff;
-  z-index: 1;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px;
   box-shadow: 0px 0px 10px #bbb;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 #hotel_logo {
-  width: 300px;
+  width: clamp(150px, 25vw, 300px);
+  height: auto;
+  flex-shrink: 0;
 }
 
 header nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px;
-}
-
-img {
-  border-radius: 5px;
-}
-
-section {
-  padding: 40px;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 200px;
 }
 
 header nav ul {
   display: flex;
   justify-content: space-around;
   list-style-type: none;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
 }
+
 header nav li {
   display: inline-block;
+  white-space: nowrap;
 }
 
 nav a {
-  padding: 10px 30px;
+  padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 30px);
   text-decoration: none;
   color: grey;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  font-size: clamp(13px, 2vw, 16px);
+  display: block;
 }
 
 nav a:hover {
@@ -64,72 +78,118 @@ nav a:hover {
   font-weight: bold;
 }
 
-.main-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ==================== IMAGES ==================== */
+img {
+  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-#img-index {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/hotel_room.png) no-repeat;
-  background-size: cover;
-  height: 70vh;
+/* ==================== SECTIONS & MAIN ==================== */
+main {
+  min-height: calc(100vh - 60px);
 }
 
-#img-room {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/g-foyer.jpg) no-repeat;
-  background-size: cover;
-  height: 50vh;
-}
-
-#img-events {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/hotel_event.jpg) no-repeat;
-  background-size: cover;
-  height: 50vh;
-}
-#img-contact {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/contact_bckgrnd.webp) no-repeat;
-  background-size: cover;
-  height: 50vh;
-}
-#img-about {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/reception.jpg) no-repeat;
-  background-size: cover;
-  height: 50vh;
-}
-
-.intro-content {
-  color: #fff;
-  font-size: 30px;
-  text-align: center;
+section {
+  padding: clamp(20px, 5vw, 40px);
 }
 
 h2 {
   text-align: center;
   color: #09529a;
+  font-size: clamp(24px, 5vw, 36px);
+  margin-bottom: 20px;
 }
 
 .u-line {
   width: 20%;
+  max-width: 100px;
   color: #eee;
+  margin: 0 auto 30px;
+  border: none;
+  border-top: 2px solid #eee;
+  height: 0;
 }
 
+/* ==================== HERO SECTION ==================== */
+.main-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 50vh;
+}
+
+#img-index {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/hotel_room.png) no-repeat center/cover;
+  min-height: clamp(50vh, 70vh, 100vh);
+}
+
+#img-room {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/board_hall.jpg) no-repeat center/cover;
+  min-height: 50vh;
+}
+
+#img-events {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/hotel_event.jpg) no-repeat center/cover;
+  min-height: 50vh;
+}
+
+#img-contact {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/contact_bckgrnd.webp) no-repeat center/cover;
+  min-height: 50vh;
+}
+
+#img-about {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/reception.jpg) no-repeat center/cover;
+  min-height: 50vh;
+}
+
+.intro-content {
+  color: #fff;
+  text-align: center;
+}
+
+.intro-content h1 {
+  font-size: clamp(32px, 8vw, 56px);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.intro-content p {
+  font-size: clamp(18px, 4vw, 30px);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.contact-intro-content {
+  color: #fff;
+  text-align: center;
+}
+
+.contact-intro-content h6 {
+  font-weight: 400;
+  font-size: clamp(12px, 2.5vw, 16px);
+}
+
+/* ==================== ROOMS SECTION ==================== */
 #sec-rooms {
-  /* padding: 30px; */
   background-color: #fafaf2;
 }
 
 .rooms {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: auto;
-  grid-gap: 3rem;
-  padding: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: clamp(20px, 3vw, 3rem);
+  padding: clamp(20px, 3vw, 30px);
 }
 
 .room-card {
@@ -143,232 +203,380 @@ h2 {
     22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
     41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
     100px 100px 80px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-.room-card p {
-  color: gray;
+.room-card:hover {
+  transform: translateY(-5px);
 }
 
 .room-card img {
   width: 100%;
   border-radius: 10px 10px 0 0;
-  height: 20vh;
+  height: clamp(150px, 25vh, 300px);
+  object-fit: cover;
 }
 
-footer {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #333333;
-  color: #b5b5b5;
-  font-size: smaller;
-  padding: 25px 10%;
-  margin-top: 20px;
+.room-card h3 {
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: #09529a;
+  padding: 15px 10px 10px;
+  margin: 0;
 }
 
-footer div {
-  display: inline-block;
-  flex-grow: 3;
+.room-card p {
+  color: gray;
+  font-size: clamp(13px, 2vw, 16px);
+  padding: 0 15px 20px;
+  line-height: 1.5;
 }
 
-footer h3 {
-  color: #fff;
-}
-
-.f-content p {
-  line-height: 30px;
-}
-
-footer a {
-  color: #b5b5b5;
-  display: block;
-  padding: 8px;
-  text-align: left;
-  text-decoration: none;
-}
-
-footer nav ul,
-.socials {
-  list-style-type: none;
-}
-
-.socials li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.socials img {
-  width: 30px;
-}
-
-.f-content:nth-of-type(1) {
-  width: 20%;
-}
-.f-content:nth-of-type(2) {
-  padding-left: 10%;
-}
-
-#copyright {
-  width: 100%;
-  text-align: center;
-}
-
-#footer-img {
-  width: 150px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* --------------------- */
-/* INDEX.HTML */
-/* --------------------- */
-
+/* ==================== OFFERS SECTION ==================== */
 .offers {
   display: flex;
   justify-content: center;
-  padding: 30px;
+  align-items: center;
+  gap: clamp(20px, 3vw, 30px);
+  padding: clamp(20px, 3vw, 30px);
+  flex-wrap: wrap;
 }
 
 #separator {
   display: none;
+  width: 100%;
+  margin: 20px 0;
+  border: none;
+  border-top: 2px solid #eee;
+  height: 0;
 }
 
 #offer_desc_1,
 #offer_desc_2 {
-  padding: 10px;
-  font-size: 20px;
+  flex: 1;
+  min-width: 250px;
+  padding: clamp(15px, 2vw, 20px);
+  font-size: clamp(15px, 2.5vw, 20px);
+}
+
+#offer_desc_1,
+#offer_desc_2 {
+  color: #333;
 }
 
 #offer_desc_1 p,
 #offer_desc_2 p {
   color: grey;
+  font-size: clamp(14px, 2vw, 16px);
+  word-spacing: 2px;
+  line-height: 1.8;
+  margin: 10px 0;
+}
+
+#offer_desc_1 h3,
+#offer_desc_2 h3 {
+  font-size: clamp(18px, 3vw, 24px);
+  color: #09529a;
+  margin-bottom: 15px;
 }
 
 #offer_desc_1 {
-  border-left: 1px solid black;
-}
-#offer_desc_2 {
-  border-right: 1px solid black;
-  text-align: right;
+  border-left: 1px solid #ccc;
+  padding-left: clamp(15px, 3vw, 30px);
 }
 
-#offer_desc_1 p,
-#offer_desc_2 p {
-  word-spacing: 3px;
-  line-height: 45px;
+#offer_desc_2 {
+  border-right: 1px solid #ccc;
+  padding-right: clamp(15px, 3vw, 30px);
+}
+
+#offer_img {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #offer_img img {
-  width: 500px;
+  width: clamp(250px, 40vw, 500px);
+  height: auto;
 }
 
+/* ==================== SERVICES SECTION ==================== */
 .services {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
-  grid-gap: 3rem;
-  padding: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: clamp(20px, 2.5vw, 3rem);
+  padding: clamp(20px, 3vw, 40px);
 }
 
 .service-card {
   text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease;
 }
 
-.gallery {
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-card img {
+  width: clamp(50px, 10vw, 100px);
+  height: clamp(50px, 10vw, 100px);
+  margin: 0 auto 10px;
+  object-fit: contain;
+}
+
+.service-card p {
+  font-size: clamp(13px, 2vw, 16px);
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ==================== GALLERY SECTION ==================== */
+.gallery,
+.aboutus_ourgallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(15px, 2vw, 20px);
+  padding: clamp(20px, 3vw, 30px);
   width: 100%;
 }
 
-.gallery-img {
+.gallery-img,
+.aboutus_gallery-img {
   width: 100%;
+  height: clamp(150px, 25vw, 300px);
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+.gallery-img:hover,
+.aboutus_gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* ==================== TESTIMONIALS SECTION ==================== */
 .testimonials {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: clamp(20px, 3vw, 40px);
+  padding: clamp(20px, 3vw, 40px);
 }
 
 .test {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+  min-width: 250px;
+  align-items: center;
+  text-align: center;
+}
+
+#test_img {
+  width: clamp(60px, 12vw, 100px);
+  height: clamp(60px, 12vw, 100px);
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.test h4 {
+  font-size: clamp(16px, 2.5vw, 20px);
+  color: #09529a;
+  margin: 0;
 }
 
 blockquote {
   color: grey;
   letter-spacing: 1px;
+  font-size: clamp(13px, 2vw, 16px);
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
 }
 
-#test_img {
-  width: 80px;
-  border-radius: 50%;
-  height: 80px;
+/* ==================== FOOTER ==================== */
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(20px, 3vw, 30px);
+  background-color: #333333;
+  color: #b5b5b5;
+  font-size: clamp(12px, 2vw, 14px);
+  padding: clamp(20px, 3vw, 40px);
+  margin-top: 20px;
 }
 
-/* --------------------- */
-/* ROOMS.HTML */
-/* --------------------- */
+footer div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+footer h3 {
+  color: #fff;
+  font-size: clamp(14px, 2.5vw, 18px);
+  margin: 0;
+}
+
+.f-content p {
+  line-height: 1.6;
+  margin: 0;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+footer nav ul,
+.socials {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+footer a {
+  color: #b5b5b5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: clamp(12px, 2vw, 14px);
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+.socials {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.socials li {
+  display: inline-block;
+}
+
+.socials img {
+  width: clamp(25px, 5vw, 30px);
+  height: auto;
+}
+
+#footer-img {
+  width: clamp(100px, 20vw, 150px);
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#copyright {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+  margin: 0;
+  font-size: clamp(11px, 1.8vw, 13px);
+}
+
+/* ==================== ROOMS PAGE ==================== */
 .room-container {
   display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 30px);
+  padding: clamp(20px, 3vw, 30px);
+  align-items: center;
+}
+
+.room-img-container {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  padding: 30px;
 }
 
 .room-img-container img {
-  width: 600px;
+  width: clamp(250px, 90vw, 600px);
+  height: auto;
 }
 
 .room-desc {
-  padding: 20px;
+  width: 100%;
+  padding: clamp(15px, 2vw, 20px);
   border-right: 1px solid #09529a;
-  line-height: 40px;
+  line-height: 1.8;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+h3 {
+  font-size: clamp(18px, 3vw, 24px);
+  color: #09529a;
 }
 
 h3 span {
   color: #a8a8a8;
+  font-size: clamp(12px, 1.8vw, 14px);
 }
 
 .r-top {
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: clamp(20px, 2vw, 30px);
 }
+
 .info {
   display: flex;
   align-items: center;
-  padding: 10px;
+  gap: 15px;
+  padding: clamp(10px, 1.5vw, 15px);
+}
+
+#info-img {
+  width: clamp(30px, 5vw, 40px);
+  height: auto;
+  flex-shrink: 0;
 }
 
 .info-d p {
   letter-spacing: 1px;
+  margin: 0;
+  font-size: clamp(13px, 2vw, 15px);
 }
 
 .info span {
-  font-size: 12px;
+  font-size: clamp(10px, 1.5vw, 12px);
   letter-spacing: 2px;
   font-weight: bold;
   color: gray;
   text-transform: uppercase;
-}
-#info-img {
-  width: 40px;
-  margin-right: 10px;
+  display: block;
 }
 
 .info-btns {
   display: flex;
-  justify-content: space-around;
+  gap: clamp(10px, 2vw, 20px);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
 }
 
 #btn-book,
 #btn-read {
-  padding: 10px;
-  font-size: 15px;
-  transition: 0.3s;
+  padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 25px);
+  font-size: clamp(13px, 2vw, 15px);
   border-radius: 5px;
+  transition: 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
 }
+
 #btn-book {
   border: none;
   background-color: #09529a;
@@ -376,84 +584,100 @@ h3 span {
 }
 
 #btn-book:hover {
-  cursor: pointer;
   background-color: #2088ee;
 }
 
 #btn-read {
-  border: 1px solid #fff;
+  border: 2px solid #09529a;
   background-color: #fff;
 }
 
 #btn-read:hover {
-  border: 1px solid #0069d9;
+  border-color: #0069d9;
 }
 
 #btn-read a {
   color: #09529a;
   text-decoration: none;
+  font-size: clamp(13px, 2vw, 15px);
 }
 
 #btn-read a:hover {
   color: #0069d9;
 }
 
-/* --------------------- */
-/* EVENTS.HTML */
-/* --------------------- */
+/* ==================== EVENTS PAGE ==================== */
 #container-1,
 #container-2 {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 30px);
+  margin-top: clamp(40px, 5vw, 70px);
 }
 
 .event,
 .event2 {
-  width: 30%;
-  padding: 40px;
+  width: clamp(280px, 80vw, 400px);
+  padding: clamp(20px, 3vw, 40px);
 }
 
-.event img {
-    width: 100%;
-    height: 200px; /* Set a specific height for all images */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
-    border-radius: 10px;
-    display: block; /* Ensure the image is displayed as a block element */
+.event img,
+.event2 img {
+  width: 100%;
+  height: clamp(150px, 25vw, 250px);
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
 }
 
-
-.heading {
-  margin-top: 60px;
+.event h3,
+.event2 h3 {
+  font-size: clamp(18px, 3vw, 22px);
+  color: #09529a;
+  margin-top: 15px;
 }
 
 .event_details {
   width: 100%;
-  text-align: start;
+  text-align: left;
   letter-spacing: 1px;
-  line-height: 30px;
+  line-height: 1.8;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #333;
 }
+
+.heading {
+  margin-top: clamp(40px, 5vw, 60px);
+  font-size: clamp(24px, 5vw, 36px);
+  color: #09529a;
+}
+
+/* ==================== TABLE STYLES ==================== */
 table {
   border-collapse: collapse;
   width: 100%;
   max-width: 1000px;
-  margin: 50px auto;
+  margin: clamp(30px, 5vw, 50px) auto;
+  overflow-x: auto;
+  display: block;
 }
 
 th {
   font-weight: bold;
   background-color: #f5f5f5;
-  text-align: left;
-  padding: 10px;
-  border: 1px solid #ddd;
   text-align: center;
+  padding: clamp(8px, 1.5vw, 10px);
+  border: 1px solid #ddd;
+  font-size: clamp(12px, 2vw, 14px);
 }
 
 td {
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: clamp(8px, 1.5vw, 10px);
   text-align: center;
   vertical-align: middle;
+  font-size: clamp(12px, 2vw, 14px);
 }
 
 tr:hover {
@@ -472,9 +696,11 @@ table a {
   background-color: #007bff;
   border: none;
   border-radius: 3px;
-  padding: 10px;
+  padding: clamp(8px, 1.5vw, 10px);
   text-decoration: none;
   display: inline-block;
+  font-size: clamp(12px, 2vw, 14px);
+  transition: background-color 0.3s ease;
 }
 
 table a:hover {
@@ -482,237 +708,353 @@ table a:hover {
 }
 
 td:last-child {
-  width: 20%;
   text-align: center;
 }
-/* --------------------- */
-/* CONTACT.HTML */
-/* --------------------- */
-.contact-intro-content {
-  color: #fff;
-  font-size: 30px;
-  text-align: center;
-}
-.contact-intro-content h6 {
-  font-weight: 400;
-  font-size: 0.8rem;
-}
+
+/* ==================== CONTACT PAGE ==================== */
 .forms {
-  width: 60%;
-  margin: 3rem auto;
+  width: 100%;
+  max-width: 900px;
+  margin: clamp(30px, 5vw, 50px) auto;
   display: grid;
-  grid-template-columns: 1fr 30%;
+  grid-template-columns: 1fr auto;
+  gap: clamp(20px, 3vw, 30px);
 }
+
 .contact-forms {
-  width: 90%;
-  padding: 0px 2rem;
-  grid-column: 1/2;
+  width: 100%;
+  padding: clamp(15px, 2vw, 20px);
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
+
 .contact-forms input,
-textarea {
+.contact-forms textarea {
   width: 100%;
-  height: 35px;
-  margin: 1rem 0px;
+  min-height: 35px;
+  padding: clamp(8px, 1.5vw, 12px);
+  margin: 0;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  border: none;
+  border: 1px solid #ddd;
+  font-size: clamp(13px, 2vw, 15px);
+  font-family: inherit;
 }
+
 .contact-forms textarea {
-  height: 8rem;
+  min-height: 8rem;
+  resize: vertical;
 }
+
 .contact-forms input::placeholder {
   font-style: italic;
+  color: #999;
 }
-#comment {
-  margin-bottom: 2rem;
-}
+
 .contact-forms label {
   color: #333333;
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: clamp(13px, 2vw, 16px);
+  font-weight: 500;
 }
+
 .contact-forms input[type="checkbox"] {
   width: 20px;
-  border: 3rem solid #b5b5b5;
   height: 20px;
-  margin-top: 0.2rem;
+  cursor: pointer;
   box-shadow: none;
+  margin: 0;
 }
+
 .contact-forms input[type="submit"] {
-  width: 35%;
+  width: clamp(120px, 40vw, 200px);
+  padding: clamp(10px, 2vw, 12px);
   font-style: italic;
-  background: red;
+  background: #d32f2f;
   color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.contact-forms input[type="submit"]:hover {
+  background: #b71c1c;
+}
+
 .contact-forms section {
   display: flex;
-
+  align-items: center;
+  gap: 10px;
   margin-bottom: 0.8rem;
 }
+
 .contact-forms section label {
-  padding-top: 0.5rem;
-  padding-left: 0.5rem;
+  margin-bottom: 0;
+  padding: 0;
   color: #000;
+  font-weight: normal;
 }
 
 .contact-about {
-  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: clamp(15px, 2vw, 20px);
 }
 
 .contact-about a {
   text-decoration: none;
-  color: red;
-}
-.contact-about h2 {
-  font-size: 1rem;
-}
-.contact-about h6 {
-  margin-bottom: 10px;
+  color: #d32f2f;
+  transition: color 0.3s ease;
 }
 
-/* --------------------- */
-/* ABOUT-US.HTML */
-/* --------------------- */
+.contact-about a:hover {
+  color: #b71c1c;
+}
+
+.contact-about h2 {
+  font-size: clamp(16px, 2.5vw, 20px);
+  margin: 0;
+}
+
+.contact-about h6 {
+  margin-bottom: 10px;
+  font-size: clamp(12px, 2vw, 14px);
+  color: #666;
+}
+
+.contact-about p {
+  font-size: clamp(13px, 2vw, 15px);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==================== ABOUT US PAGE ==================== */
 #aboutus {
   display: flex;
-  gap: 50px;
-  margin-top: 80px;
+  gap: clamp(20px, 5vw, 50px);
+  margin-top: clamp(40px, 5vw, 80px);
+  align-items: center;
 }
 
 #aboutus img {
-  width: 55%;
+  width: clamp(300px, 50vw, 55%);
+  height: auto;
 }
 
 #aboutus_text {
-  width: 40%;
+  width: clamp(280px, 45vw, 40%);
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
+  gap: 15px;
+}
+
+#aboutus_text h2 {
+  text-align: left;
+  margin: 0;
 }
 
 #aboutus_text p {
   text-align: justify;
-  line-height: 30px;
+  line-height: 1.8;
   letter-spacing: 1px;
-  margin-top: 25px;
+  margin: 0;
+  font-size: clamp(14px, 2vw, 16px);
 }
 
 #aboutus_text hr {
-  margin: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #09529a;
+  border: none;
+  margin: 15px 0;
 }
 
-/*Hotel Staff and Features Section*/
+/* ==================== ABOUT US - STAFF SECTION ==================== */
 #aboutus_hotelstaff_features {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgba(235, 235, 235, 0.521);
-  margin-top: 60px;
+  margin-top: clamp(40px, 5vw, 60px);
+  padding: clamp(30px, 3vw, 50px);
+  gap: 30px;
 }
 
-/*Hotel Staff Section*/
 #aboutus_hotelstaff {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+#aboutus_hotelstaff h2 {
+  margin: 0 0 30px 0;
 }
 
 #aboutus_hotelstaff_person {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: clamp(20px, 3vw, 30px);
+  width: 100%;
 }
 
 #aboutus_hotelstaff_person div {
-  width: 25%;
+  width: clamp(200px, 45vw, 25%);
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  gap: 10px;
 }
 
 #aboutus_hotelstaff_person img {
   width: 100%;
+  height: auto;
 }
 
 #aboutus_hotelstaff_person h3 {
-  font-size: 160%;
+  font-size: clamp(16px, 2.5vw, 20px);
   text-align: center;
+  margin: 0;
 }
 
 #aboutus_hotelstaff_person p {
   text-align: center;
-  line-height: 25px;
+  line-height: 1.6;
+  font-size: clamp(13px, 2vw, 15px);
+  margin: 0;
 }
 
-/*Hotel features Section*/
-/* #aboutus_hotelfeatures {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 80px;
-  width: 80%;
-} */
-
+/* ==================== ABOUT US - FEATURES SECTION ==================== */
 #aboutus_hotelfeature {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: space-around;
-  gap: 70px;
+  gap: clamp(20px, 3vw, 40px);
 }
 
 #aboutus_hotelfeature div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
-  margin-top: 40px;
+  gap: 10px;
+  width: clamp(120px, 40vw, 20%);
+  margin-top: clamp(20px, 3vw, 40px);
 }
 
 #aboutus_hotelfeature img {
-  width: 40%;
-  height: 100px;
+  width: clamp(40px, 15vw, 100px);
+  height: clamp(40px, 15vw, 100px);
+  object-fit: contain;
+}
+
+#aboutus_hotelfeature h3 {
+  font-size: clamp(14px, 2.5vw, 18px);
 }
 
 #aboutus_hotelfeature p {
   text-align: center;
+  font-size: clamp(12px, 2vw, 14px);
+  margin: 0;
 }
 
-/*Our Gallery Section*/
-.aboutus_ourgallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  padding: 30px;
-  width: 100%;
+/* ==================== MEDIA QUERIES ==================== */
+
+/* Extra Large Screens (1200px and up) - Desktop */
+@media screen and (min-width: 1200px) {
+  .rooms {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .services {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery,
+  .aboutus_ourgallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .forms {
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
-.aboutus_gallery-img {
-  width: 100%;
+/* Large Screens (1024px - 1199px) - Large Tablet/Desktop */
+@media screen and (max-width: 1199px) and (min-width: 1024px) {
+  .rooms {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery,
+  .aboutus_ourgallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #offer_img img {
+    width: clamp(250px, 70vw, 450px);
+  }
+
+  #aboutus {
+    gap: clamp(20px, 3vw, 30px);
+  }
+
+  #aboutus img {
+    width: clamp(300px, 45vw, 50%);
+  }
+
+  #aboutus_text {
+    width: clamp(250px, 45vw, 45%);
+  }
 }
 
-/* TABLET VIEW */
-@media screen and (max-width: 1024px) {
+/* Tablets (768px - 1023px) */
+@media screen and (max-width: 1023px) and (min-width: 768px) {
   header {
-    flex-direction: column;
-  }
-  header nav li {
-    display: inline-block;
-  }
-  footer div nav ul li {
-    display: block;
+    padding: 10px;
+    gap: 10px;
   }
 
-  footer nav a {
-    padding: 3px 0px;
+  #hotel_logo {
+    width: clamp(120px, 20vw, 200px);
   }
 
-  footer nav ul {
-    flex-direction: column;
+  header nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  header nav ul {
+    gap: 5px;
+  }
+
+  nav a {
+    padding: 8px clamp(10px, 2vw, 20px);
+  }
+
+  .rooms {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(15px, 2vw, 25px);
+  }
+
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(15px, 2vw, 25px);
+  }
+
+  .gallery,
+  .aboutus_ourgallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(15px, 2vw, 20px);
   }
 
   .offers {
@@ -720,54 +1062,20 @@ textarea {
     gap: 20px;
   }
 
-  #offer_img img {
+  #offer_desc_1,
+  #offer_desc_2 {
+    border: none;
     width: 100%;
-  }
-
-  .room-img-container {
-    flex: auto;
-  }
-
-  .room-img-container img {
-    width: 500px;
-  }
-
-  .room-desc {
-    line-height: normal;
-  }
-
-  .contact-forms input[type="submit"] {
-    width: 50%;
-  }
-}
-
-/* MOBILE VIEW */
-@media screen and (max-width: 760px) {
-  nav ul {
-    flex-direction: column;
-    gap: 20px 0;
     text-align: center;
   }
 
-  nav {
-    flex-direction: column;
-  }
-
-  .rooms {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  footer > div {
+  #offer_img img {
     width: 100%;
-  }
-
-  #footer-img {
-    justify-content: flex-start;
-    margin-top: 30px;
+    max-width: 400px;
   }
 
   .room-img-container img {
-    width: 100%;
+    width: clamp(200px, 80vw, 500px);
   }
 
   .room-desc {
@@ -775,85 +1083,22 @@ textarea {
     border-left: 1px solid #09529a;
   }
 
-  #btn-book,
-  #btn-read {
-    font-size: 20px;
-    margin-top: 10px;
-  }
-
-  #info-img {
-    margin: 0 10px;
-  }
-
-  .f-content:nth-of-type(2) {
-    padding-left: 0%;
-  }
-
-  .testimonials,
-  .room-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  #separator {
-    display: block;
-    width: 20%;
-    color: #fff;
-  }
-
-  .services {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .room-container {
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .r-top {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr;
   }
 
   .forms {
-    display: grid;
-    grid-template-rows: 1fr 43vh;
     grid-template-columns: 1fr;
-    width: 100%;
   }
-  .contact-forms {
-    grid-row: 1/2;
-    width: 100%;
-  }
+
   .contact-about {
-    grid-row: 2/3;
-    grid-column: 1/2;
-    padding: 2rem;
-  }
-
-  table {
-    font-size: 12px;
-  }
-
-  td,
-  th {
-    padding: 8px;
-  }
-
-  td:last-child {
-    width: 30%;
-  }
-
-  #container-1 {
-    flex-direction: column;
-  }
-
-  .event,
-  .event2 {
-    width: 100%;
+    display: none;
   }
 
   #aboutus {
     flex-direction: column;
+    gap: clamp(20px, 3vw, 30px);
+    margin-top: clamp(30px, 3vw, 50px);
   }
 
   #aboutus img {
@@ -862,6 +1107,171 @@ textarea {
 
   #aboutus_text {
     width: 100%;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+}
+
+/* Small Tablets/Large Phones (480px - 767px) */
+@media screen and (max-width: 767px) and (min-width: 480px) {
+  header {
+    flex-direction: column;
+    padding: 8px;
+    gap: 10px;
+  }
+
+  #hotel_logo {
+    width: clamp(100px, 18vw, 150px);
+  }
+
+  header nav {
+    width: 100%;
+    justify-content: center;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  nav a {
+    padding: 8px clamp(12px, 2vw, 18px);
+    font-size: 14px;
+  }
+
+  section {
+    padding: clamp(15px, 4vw, 25px);
+  }
+
+  h2 {
+    font-size: clamp(22px, 5vw, 28px);
+  }
+
+  .rooms,
+  .services {
+    grid-template-columns: 1fr;
+    gap: clamp(15px, 2vw, 20px);
+  }
+
+  .gallery,
+  .aboutus_ourgallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .offers {
+    flex-direction: column;
+    padding: clamp(15px, 2vw, 20px);
+    gap: 20px;
+  }
+
+  #offer_desc_1,
+  #offer_desc_2 {
+    border: none;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  #offer_img img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #separator {
+    display: block !important;
+  }
+
+  .room-container {
+    padding: clamp(15px, 2vw, 20px);
+  }
+
+  .room-img-container img {
+    width: 100%;
+  }
+
+  .room-desc {
+    border: none;
+    padding: 15px;
+  }
+
+  .info-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #btn-book,
+  #btn-read {
+    width: 100%;
+    text-align: center;
+  }
+
+  .r-top {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  #container-1,
+  #container-2 {
+    flex-direction: column;
+  }
+
+  .event,
+  .event2 {
+    width: 100%;
+    padding: clamp(15px, 2vw, 20px);
+  }
+
+  .testimonials {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .test {
+    width: 100%;
+  }
+
+  .forms {
+    grid-template-columns: 1fr;
+    margin: clamp(20px, 3vw, 30px) auto;
+    gap: 20px;
+  }
+
+  .contact-about {
+    padding: 15px;
+    border-top: 1px solid #ccc;
+  }
+
+  #aboutus {
+    flex-direction: column;
+    gap: clamp(15px, 2vw, 20px);
+    margin-top: clamp(20px, 3vw, 40px);
+  }
+
+  #aboutus img {
+    width: 100%;
+  }
+
+  #aboutus_text {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  #aboutus_text h2 {
+    text-align: center;
+  }
+
+  #aboutus_text p {
+    text-align: center;
   }
 
   #aboutus_hotelstaff_person {
@@ -873,6 +1283,503 @@ textarea {
   }
 
   #aboutus_hotelstaff_person img {
-    width: 70%;
+    width: clamp(200px, 60vw, 300px);
+  }
+
+  #aboutus_hotelfeature {
+    gap: clamp(15px, 2vw, 25px);
+  }
+
+  #aboutus_hotelfeature div {
+    width: clamp(100px, 40vw, 150px);
+    margin-top: 20px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #footer-img {
+    justify-content: center;
+  }
+}
+
+/* Mobile Phones (320px - 479px) */
+@media screen and (max-width: 479px) {
+  header {
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  #hotel_logo {
+    width: clamp(80px, 25vw, 120px);
+  }
+
+  header nav {
+    width: 100%;
+    padding: 0;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 3px;
+    padding: 0;
+  }
+
+  header nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav a {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  section {
+    padding: clamp(12px, 3vw, 20px);
+  }
+
+  h2 {
+    font-size: clamp(20px, 5vw, 24px);
+    margin-bottom: 15px;
+  }
+
+  .intro-content h1 {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .intro-content p {
+    font-size: clamp(16px, 4vw, 22px);
+  }
+
+  .rooms,
+  .services,
+  .gallery,
+  .aboutus_ourgallery {
+    grid-template-columns: 1fr;
+    gap: clamp(10px, 2vw, 15px);
+  }
+
+  .room-card {
+    width: 100%;
+  }
+
+  .room-card img {
+    height: clamp(120px, 20vh, 180px);
+  }
+
+  .room-card h3 {
+    font-size: 16px;
+    padding: 10px 8px 8px;
+  }
+
+  .room-card p {
+    font-size: 13px;
+    padding: 0 10px 15px;
+  }
+
+  .offers {
+    flex-direction: column;
+    padding: clamp(12px, 2vw, 15px);
+    gap: 15px;
+  }
+
+  #offer_desc_1,
+  #offer_desc_2 {
+    border: none !important;
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #offer_img img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #separator {
+    display: block !important;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .service-card {
+    padding: 10px;
+  }
+
+  .service-card img {
+    width: clamp(40px, 8vw, 60px);
+    height: clamp(40px, 8vw, 60px);
+  }
+
+  .service-card p {
+    font-size: 12px;
+  }
+
+  .gallery-img,
+  .aboutus_gallery-img {
+    height: clamp(120px, 18vw, 180px);
+  }
+
+  .testimonials {
+    flex-direction: column;
+    gap: 15px;
+    padding: clamp(12px, 2vw, 20px);
+  }
+
+  .test {
+    width: 100%;
+  }
+
+  .test h4 {
+    font-size: 14px;
+  }
+
+  blockquote {
+    font-size: 12px;
+  }
+
+  #test_img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .room-container {
+    padding: clamp(12px, 2vw, 15px);
+  }
+
+  .room-img-container img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .room-desc {
+    border: none;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .r-top {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .info {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  #info-img {
+    width: 25px;
+  }
+
+  .info-btns {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #btn-book,
+  #btn-read {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+
+  #container-1,
+  #container-2 {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .event,
+  .event2 {
+    width: 100%;
+    padding: clamp(12px, 2vw, 15px);
+  }
+
+  .event img,
+  .event2 img {
+    height: clamp(120px, 20vh, 180px);
+  }
+
+  .event h3,
+  .event2 h3 {
+    font-size: 16px;
+  }
+
+  .event_details {
+    font-size: 13px;
+  }
+
+  .heading {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  table {
+    font-size: 11px;
+  }
+
+  th,
+  td {
+    padding: 4px;
+  }
+
+  table a {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+
+  .forms {
+    grid-template-columns: 1fr;
+    margin: clamp(15px, 2vw, 20px) auto;
+    gap: 15px;
+  }
+
+  .contact-forms {
+    padding: clamp(10px, 2vw, 15px);
+    gap: 12px;
+  }
+
+  .contact-forms input,
+  .contact-forms textarea {
+    min-height: 32px;
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .contact-forms textarea {
+    min-height: 6rem;
+  }
+
+  .contact-forms label {
+    font-size: 12px;
+  }
+
+  .contact-forms input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .contact-about {
+    padding: 12px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+  }
+
+  .contact-about h2 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .contact-about h6 {
+    font-size: 12px;
+  }
+
+  .contact-about p {
+    font-size: 12px;
+  }
+
+  #aboutus {
+    flex-direction: column;
+    gap: clamp(12px, 2vw, 15px);
+    margin-top: clamp(15px, 3vw, 30px);
+  }
+
+  #aboutus img {
+    width: 100%;
+  }
+
+  #aboutus_text {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  #aboutus_text h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  #aboutus_text p {
+    text-align: center;
+    font-size: 13px;
+  }
+
+  #aboutus_text hr {
+    margin: 10px auto;
+  }
+
+  #aboutus_hotelstaff_features {
+    margin-top: clamp(20px, 3vw, 40px);
+    padding: clamp(20px, 2vw, 30px);
+    gap: 20px;
+  }
+
+  #aboutus_hotelstaff h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  #aboutus_hotelstaff_person {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #aboutus_hotelstaff_person div {
+    width: 100%;
+  }
+
+  #aboutus_hotelstaff_person img {
+    width: clamp(150px, 50vw, 250px);
+  }
+
+  #aboutus_hotelstaff_person h3 {
+    font-size: 14px;
+  }
+
+  #aboutus_hotelstaff_person p {
+    font-size: 12px;
+  }
+
+  #aboutus_hotelfeature {
+    gap: clamp(10px, 2vw, 15px);
+  }
+
+  #aboutus_hotelfeature div {
+    width: clamp(80px, 35vw, 120px);
+    margin-top: 15px;
+  }
+
+  #aboutus_hotelfeature img {
+    width: clamp(30px, 10vw, 60px);
+    height: clamp(30px, 10vw, 60px);
+  }
+
+  #aboutus_hotelfeature h3 {
+    font-size: 12px;
+  }
+
+  #aboutus_hotelfeature p {
+    font-size: 11px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: clamp(15px, 2vw, 20px);
+  }
+
+  footer h3 {
+    font-size: 14px;
+  }
+
+  footer a,
+  .f-content p {
+    font-size: 12px;
+  }
+
+  #footer-img {
+    width: clamp(80px, 18vw, 120px);
+    justify-content: center;
+  }
+
+  #copyright {
+    font-size: 11px;
+    padding-top: 15px;
+  }
+
+  .socials {
+    gap: 10px;
+  }
+
+  .socials img {
+    width: clamp(20px, 4vw, 25px);
+  }
+}
+
+/* Extra Small Phones (Landscape mode 320px) */
+@media screen and (max-width: 480px) and (orientation: landscape) {
+  header {
+    padding: 5px 10px;
+  }
+
+  #hotel_logo {
+    width: clamp(60px, 15vw, 100px);
+  }
+
+  nav a {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  section {
+    padding: clamp(10px, 2vw, 15px);
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .intro-content h1 {
+    font-size: 22px;
+  }
+
+  .intro-content p {
+    font-size: 14px;
+  }
+
+  #img-index {
+    min-height: 30vh;
+  }
+
+  .rooms,
+  .services,
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 8px;
+  }
+
+  .room-card img {
+    height: 80px;
+  }
+
+  .room-card h3 {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .room-card p {
+    font-size: 11px;
+    padding: 0 8px 10px;
+  }
+
+  .testimonials {
+    gap: 10px;
+  }
+
+  footer {
+    gap: 10px;
   }
 }
